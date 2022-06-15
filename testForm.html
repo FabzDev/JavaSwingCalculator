@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8" />
+  <meta name:"viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <title>Survey Form</title>
+  </head>
+  <body>
+  <h1 id="title">freeCodeCamp Survey Form</h1>
+  <p id="description">Thank you for taking the time to help us improve the platform</p>
+  <form "id=surveyForm">
+    <div>
+    <label>Name<input type= "text" id="name" placeholder="Enter your name"/></label>
+    <label>Email<input type= "email" id="email" placeholder="Enter your email"/></label>
+    <label>Age (optional)<input type= "number" id="name" placeholder="Age"/>
+    </div>
+    <div>
+      Which option best describes your current role?<select>
+      <option>Select an option</option>
+      <option>Student</option>
+      <option>Full time job</option>
+      <option>Full time learner</option>
+      <option>Prefer not to say</option>
+      <option>Other</option>
+    </select></label>
+    </div>
+    <div>
+    <label>Would you recommend freeCodeCamp?</label>
+    <label><input type= "radio" name="recommend" />Definitely</label>
+    <label><input type= "radio" name="recommend" />Maybe</label>
+    <label><input type= "radio" name="recommend" />Not sure</label>
+   </div>
+   <div>
+  <label>What is your favorite feature of freeCodeCamp?
+    <select>
+      <option>Select an option</option>
+      <option>Challenges</option>
+      <option>Projects</option>
+      <option>Community</option>
+      <option>Open Source</option>
+    </select> </label>
+    </div>
+    <div>
+  <label>What would you like to improve?</label>
+    <label><input type= "checkbox" name="improve" />Front-end Projects</label>
+    <label><input type= "checkbox" name="improve" />Back-end Projects</label>
+    <label><input type= "checkbox" name="improve" />Data Visualization</label>
+    <label><input type= "checkbox" name="improve" />Challenges</label>
+    <label><input type= "checkbox" name="improve" />Open Source Community</label>
+    <label><input type= "checkbox" name="improve" />Gitter help rooms</label>
+    <label><input type= "checkbox" name="improve" />Videos</label>
+    <label><input type= "checkbox" name="improve" />City Meetups</label>
+    <label><input type= "checkbox" name="improve" />Wiki</label>
+    <label><input type= "checkbox" name="improve" />Forum</label>
+    <label><input type= "checkbox" name="improve" />Additional Courses
+    </div>
+    <div>
+    <label>What is your favorite feature of freeCodeCamp?<textarea></textarea></label>
+    </div>
+  <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>
