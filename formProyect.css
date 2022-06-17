@@ -1,22 +1,25 @@
-label, input[type="text"], input[type="email"], input[type="number"], textarea, select {
+label, input[type="text"], input[type="email"], input[type="submit"], input[type="number"], textarea, select {
   display: block;
   margin: 10px 0px;
 }
 
 input[type="text"], input[type="submit"], input[type="email"], input[type="number"], select {
   height: 2rem;
-  width: 90%;
+  width: 100%;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+  border-radius: 0.3rem;
 }
+
 textarea{
   height: 5rem;
-  width: 90%;
+  width: 100%;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  padding: 10px;
+  //padding: 10px;
+  border-radius: 0.3rem;
 }
 h1, p {
   text-align: center;
@@ -38,8 +41,9 @@ form{
   margin-right: auto;
   margin-left: auto;
   width: 32%;
-  min-width: 700px;
-  padding: 30px;
+  min-width: 600px;
+  padding: 3rem;
+  border-radius: 0.3rem;
   }
 
 body{
@@ -53,9 +57,9 @@ body{
   padding-top: 10px;
   padding-bottom: 0px;
   border-bottom: 0px;
+  margin: 0;
 }
 
 div {
-margin = 0px auto;
-
+  margin-bottom: 30px;
 }
