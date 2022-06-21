@@ -38,3 +38,8 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  #gallery img {
+    width: 100%;
+  }
+}
