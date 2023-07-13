@@ -6,6 +6,7 @@ public class Calculator extends javax.swing.JFrame {
    
     private double value = 0;
     private double result = 0;
+    private boolean equal = false;
    
     public Calculator() {
         initComponents();
@@ -266,6 +267,11 @@ public class Calculator extends javax.swing.JFrame {
 
         btnEquals.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnEquals.setText("=");
+        btnEquals.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEqualsActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
@@ -378,19 +384,31 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
+        if (!equal){
         value = Double.parseDouble(lblResult.getText());
+        } else {
+        value = 0;
+        equal = false;
+        }
         result += value;
         String resultText = result == (int)result ? String.valueOf((int) result): String.valueOf(result);
         lblOperations.setText(resultText + " + ");
         lblResult.setText("");
- 
-
-        
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
         lblResult.setText(lblResult.getText() + ".");
     }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
+        value = Double.parseDouble(lblResult.getText());
+        result += value;
+        String resultText = result == (int)result ? String.valueOf((int) result): String.valueOf(result);
+        lblOperations.setText("");
+        lblResult.setText(resultText);
+        equal = true;
+        
+    }//GEN-LAST:event_btnEqualsActionPerformed
 
     /**
      * @param args the command line arguments
