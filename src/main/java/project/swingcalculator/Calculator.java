@@ -1,13 +1,13 @@
-
 package project.swingcalculator;
 
-
 public class Calculator extends javax.swing.JFrame {
-   
-    private double value = 0;
-    private double result = 0;
-    private boolean equal = false;
-   
+
+    private double v1 = 0;
+    private double v2 = 0;
+    private double vr = 0;
+    private String op = "+";
+    private boolean prevEq = false;
+
     public Calculator() {
         initComponents();
         setLocationRelativeTo(null);
@@ -49,6 +49,7 @@ public class Calculator extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
+        setMinimumSize(new java.awt.Dimension(350, 550));
 
         rootPanel.setLayout(new java.awt.GridBagLayout());
 
@@ -63,6 +64,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn0, gridBagConstraints);
 
@@ -77,6 +79,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn1, gridBagConstraints);
 
@@ -91,6 +94,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn2, gridBagConstraints);
 
@@ -105,6 +109,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn3, gridBagConstraints);
 
@@ -119,6 +124,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn4, gridBagConstraints);
 
@@ -133,6 +139,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn5, gridBagConstraints);
 
@@ -147,6 +154,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn6, gridBagConstraints);
 
@@ -161,6 +169,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn7, gridBagConstraints);
 
@@ -175,6 +184,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn8, gridBagConstraints);
 
@@ -189,6 +199,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btn9, gridBagConstraints);
 
@@ -198,6 +209,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btnPlusMinus, gridBagConstraints);
 
@@ -212,6 +224,7 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btnC, gridBagConstraints);
 
@@ -221,15 +234,22 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btnSqrt, gridBagConstraints);
 
         btnDivision.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnDivision.setText("÷");
+        btnDivision.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivisionActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btnDivision, gridBagConstraints);
 
@@ -244,25 +264,38 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(btnPlus, gridBagConstraints);
 
         btnMinus.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnMinus.setText("-");
+        btnMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(btnMinus, gridBagConstraints);
 
         btnX.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnX.setText("x");
+        btnX.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(btnX, gridBagConstraints);
 
         btnEquals.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -276,7 +309,8 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(btnEquals, gridBagConstraints);
 
         btnDot.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
@@ -290,31 +324,42 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         rootPanel.add(btnDot, gridBagConstraints);
 
-        btnErase.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        btnErase.setText("⌫");
+        btnErase.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        btnErase.setText("Ce");
+        btnErase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEraseActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(btnErase, gridBagConstraints);
 
         lblResult.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblResult.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblResult.setMinimumSize(new java.awt.Dimension(100, 80));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 5);
         rootPanel.add(lblResult, gridBagConstraints);
 
         lblOperations.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lblOperations.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOperations.setMinimumSize(new java.awt.Dimension(100, 30));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -323,17 +368,20 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 5;
         gridBagConstraints.ipady = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 0.5;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         rootPanel.add(lblOperations, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
 
         pack();
@@ -380,20 +428,45 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
+        v1 = 0;
+        v2 = 0;
+        vr = 0;
+        op = "+";
+        prevEq = false;
+        lblOperations.setText("");
+        lblResult.setText("");
         
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
-        if (!equal){
-        value = Double.parseDouble(lblResult.getText());
+        if (!prevEq) {
+            if (!lblResult.getText().equals("")) {
+                v2 = Double.parseDouble(lblResult.getText());
+            } else {
+                v2 = 0;
+            }
         } else {
-        value = 0;
-        equal = false;
+            v2 = op.equals("+") || op.equals("-") ? 0 : 1;
+            prevEq=false;
         }
-        result += value;
-        String resultText = result == (int)result ? String.valueOf((int) result): String.valueOf(result);
-        lblOperations.setText(resultText + " + ");
+        
+        
+        switch (op) {
+            case "+" ->
+                vr = v1 + v2;
+            case "-" ->
+                vr = v1 - v2;
+            case "*" ->
+                vr = v1 * v2;
+            case "/" ->
+                vr = v1 / v2;
+        }
+
+        lblOperations.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)) + " + ");
         lblResult.setText("");
+        v1 = vr;
+        op = "+";
+
     }//GEN-LAST:event_btnPlusActionPerformed
 
     private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
@@ -401,14 +474,125 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDotActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        value = Double.parseDouble(lblResult.getText());
-        result += value;
-        String resultText = result == (int)result ? String.valueOf((int) result): String.valueOf(result);
-        lblOperations.setText("");
-        lblResult.setText(resultText);
-        equal = true;
-        
+        if (!prevEq) {
+            if (!lblResult.getText().equals("")) {
+                v2 = Double.parseDouble(lblResult.getText());
+            } else {
+                v2 = 0;
+            }
+        }
+        switch (op) {
+            case "+" ->
+                vr = v1 + v2;
+            case "-" ->
+                vr = v1 - v2;
+            case "*" ->
+                vr = v1 * v2;
+            case "/" ->
+                vr = v1 / v2;
+        }
+
+        lblOperations.setText((v1 == (int) v1 ? String.valueOf((int) v1) : String.valueOf(v1)) + " " + op + " " + (v2 == (int) v2 ? String.valueOf((int) v2) : String.valueOf(v2)) + " = ");
+        lblResult.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)));
+        v1 = vr;
+        prevEq = true;
+
+
     }//GEN-LAST:event_btnEqualsActionPerformed
+
+    private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
+
+        if (!prevEq) {
+            if (!lblResult.getText().equals("")) {
+                v2 = Double.parseDouble(lblResult.getText());
+            } else {
+                v2 = 0;
+            }
+        } else {
+            v2 = op.equals("+") || op.equals("-") ? 0 : 1;
+            prevEq=false;
+        }
+
+        switch (op) {
+            case "+" ->
+                vr = v1 + v2;
+            case "-" ->
+                vr = v1 - v2;
+            case "*" ->
+                vr = v1 * v2;
+            case "/" ->
+                vr = v1 / v2;
+        }
+
+        lblOperations.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)) + " - ");
+        lblResult.setText("");
+        v1 = vr;
+        op = "-";
+
+
+    }//GEN-LAST:event_btnMinusActionPerformed
+
+    private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
+        if (!prevEq) {
+            if (!lblResult.getText().equals("")) {
+                v2 = Double.parseDouble(lblResult.getText());
+            } else {
+                v2 = 0;
+            }
+        } else {
+            v2 = op.equals("+") || op.equals("-") ? 0 : 1;
+            prevEq=false;
+        }
+
+        switch (op) {
+            case "+" ->
+                vr = v1 + v2;
+            case "-" ->
+                vr = v1 - v2;
+            case "*" ->
+                vr = v1 * v2;
+            case "/" ->
+                vr = v1 / v2;
+        }
+
+        lblOperations.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)) + " x ");
+        lblResult.setText("");
+        v1 = vr;
+        op = "*";
+    }//GEN-LAST:event_btnXActionPerformed
+
+    private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
+        if (!prevEq) {
+            if (!lblResult.getText().equals("")) {
+                v2 = Double.parseDouble(lblResult.getText());
+            } else {
+                v2 = 0;
+            }
+        } else {
+            v2 = op.equals("+") || op.equals("-") ? 0 : 1;
+            prevEq=false;
+        }
+
+        switch (op) {
+            case "+" ->
+                vr = v1 + v2;
+            case "-" ->
+                vr = v1 - v2;
+            case "*" ->
+                vr = v1 * v2;
+            case "/" ->
+                vr = v1 / v2;
+        }
+
+        lblOperations.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)) + " / ");
+        lblResult.setText("");
+        v1 = vr;
+        op = "/";
+    }//GEN-LAST:event_btnDivisionActionPerformed
+
+    private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEraseActionPerformed
 
     /**
      * @param args the command line arguments
