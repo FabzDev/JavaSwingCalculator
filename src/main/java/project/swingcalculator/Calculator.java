@@ -205,6 +205,11 @@ public class Calculator extends javax.swing.JFrame {
 
         btnPlusMinus.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnPlusMinus.setText("±");
+        btnPlusMinus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlusMinusActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -593,6 +598,14 @@ public class Calculator extends javax.swing.JFrame {
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEraseActionPerformed
+
+    private void btnPlusMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusMinusActionPerformed
+        
+        vr = Double.parseDouble(lblResult.getText()) * -1;
+        lblResult.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)));
+        v1 = vr;
+        
+    }//GEN-LAST:event_btnPlusMinusActionPerformed
 
     /**
      * @param args the command line arguments
