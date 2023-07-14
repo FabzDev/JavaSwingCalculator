@@ -223,6 +223,11 @@ public class Calculator extends javax.swing.JFrame {
 
         btnSqrt.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         btnSqrt.setText("√");
+        btnSqrt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSqrtActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -586,6 +591,15 @@ public class Calculator extends javax.swing.JFrame {
         v1 = vr;
 
     }//GEN-LAST:event_btnPlusMinusActionPerformed
+
+    private void btnSqrtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSqrtActionPerformed
+        lblOperations.setText("√(" + lblResult.getText() + ")");
+        vr = Math.sqrt(Double.parseDouble(lblResult.getText()));
+        lblResult.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)));
+        v1 = vr;
+        prevEq=true;
+        
+    }//GEN-LAST:event_btnSqrtActionPerformed
 
     /**
      * @param args the command line arguments
