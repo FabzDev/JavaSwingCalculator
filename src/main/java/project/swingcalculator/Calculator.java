@@ -601,7 +601,9 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivisionActionPerformed
 
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
-        if (!isEqualActive)
+        if (isEqualActive)
+            equalResetCalc();
+        else 
             lblResult.setText("");
     }//GEN-LAST:event_btnEraseActionPerformed
 
