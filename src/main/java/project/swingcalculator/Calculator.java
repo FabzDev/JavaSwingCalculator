@@ -6,13 +6,24 @@ public class Calculator extends javax.swing.JFrame {
     private double v2 = 0;
     private double vr = 0;
     private String op = "+";
-    private boolean prevEq = false;
+    private boolean isEqualActive = false;
 
     public Calculator() {
         initComponents();
         setLocationRelativeTo(null);
     }
-
+    
+    public void equalResetCalc() {
+        if (isEqualActive) {
+            v1 = 0;
+            v2 = 0;
+            vr = 0;
+            op = "+";
+            lblOperations.setText("");
+            lblResult.setText("");
+            isEqualActive = false;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -378,42 +389,52 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "0");
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "1");
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "2");
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "3");
     }//GEN-LAST:event_btn3ActionPerformed
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "4");
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "5");
     }//GEN-LAST:event_btn5ActionPerformed
 
     private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "6");
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "7");
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "8");
     }//GEN-LAST:event_btn8ActionPerformed
 
     private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        equalResetCalc();
         lblResult.setText(lblResult.getText() + "9");
     }//GEN-LAST:event_btn9ActionPerformed
 
@@ -422,14 +443,14 @@ public class Calculator extends javax.swing.JFrame {
         v2 = 0;
         vr = 0;
         op = "+";
-        prevEq = false;
+        isEqualActive = false;
         lblOperations.setText("");
         lblResult.setText("");
 
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlusActionPerformed
-        if (!prevEq) {
+        if (!isEqualActive) {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
@@ -437,7 +458,7 @@ public class Calculator extends javax.swing.JFrame {
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
-            prevEq = false;
+            isEqualActive = false;
         }
 
         switch (op) {
@@ -463,7 +484,7 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDotActionPerformed
 
     private void btnEqualsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEqualsActionPerformed
-        if (!prevEq) {
+        if (!isEqualActive) {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
@@ -484,14 +505,14 @@ public class Calculator extends javax.swing.JFrame {
         lblOperations.setText((v1 == (int) v1 ? String.valueOf((int) v1) : String.valueOf(v1)) + " " + op + " " + (v2 == (int) v2 ? String.valueOf((int) v2) : String.valueOf(v2)) + " = ");
         lblResult.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)));
         v1 = vr;
-        prevEq = true;
+        isEqualActive = true;
 
 
     }//GEN-LAST:event_btnEqualsActionPerformed
 
     private void btnMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusActionPerformed
 
-        if (!prevEq) {
+        if (!isEqualActive) {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
@@ -499,7 +520,7 @@ public class Calculator extends javax.swing.JFrame {
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
-            prevEq = false;
+            isEqualActive = false;
         }
 
         switch (op) {
@@ -522,7 +543,7 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMinusActionPerformed
 
     private void btnXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXActionPerformed
-        if (!prevEq) {
+        if (!isEqualActive) {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
@@ -530,7 +551,7 @@ public class Calculator extends javax.swing.JFrame {
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
-            prevEq = false;
+            isEqualActive = false;
         }
 
         switch (op) {
@@ -551,7 +572,7 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnXActionPerformed
 
     private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
-        if (!prevEq) {
+        if (!isEqualActive) {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
@@ -559,7 +580,7 @@ public class Calculator extends javax.swing.JFrame {
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
-            prevEq = false;
+            isEqualActive = false;
         }
 
         switch (op) {
@@ -580,7 +601,7 @@ public class Calculator extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDivisionActionPerformed
 
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
-        if (!prevEq)
+        if (!isEqualActive)
             lblResult.setText("");
     }//GEN-LAST:event_btnEraseActionPerformed
 
@@ -597,7 +618,7 @@ public class Calculator extends javax.swing.JFrame {
         vr = Math.sqrt(Double.parseDouble(lblResult.getText()));
         lblResult.setText((vr == (int) vr ? String.valueOf((int) vr) : String.valueOf(vr)));
         v1 = vr;
-        prevEq=true;
+        isEqualActive=true;
         
     }//GEN-LAST:event_btnSqrtActionPerformed
 
