@@ -10,6 +10,7 @@ public class Calculator extends javax.swing.JFrame {
 
     public Calculator() {
         initComponents();
+        setVisible(true);
         setLocationRelativeTo(null);
     }
     
@@ -57,6 +58,12 @@ public class Calculator extends javax.swing.JFrame {
         btnErase = new javax.swing.JButton();
         lblResult = new javax.swing.JLabel();
         lblOperations = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        modeMenu = new javax.swing.JMenu();
+        calculatorItem = new javax.swing.JMenuItem();
+        moneyConverterItem = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        exitItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculator");
@@ -346,7 +353,7 @@ public class Calculator extends javax.swing.JFrame {
 
         lblResult.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         lblResult.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblResult.setMinimumSize(new java.awt.Dimension(100, 60));
+        lblResult.setMinimumSize(new java.awt.Dimension(100, 50));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
@@ -374,6 +381,40 @@ public class Calculator extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         rootPanel.add(lblOperations, gridBagConstraints);
 
+        modeMenu.setText("Mode");
+
+        calculatorItem.setIcon(new javax.swing.ImageIcon("D:\\calculator icon.png")); // NOI18N
+        calculatorItem.setText("Calculator");
+        calculatorItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculatorItemActionPerformed(evt);
+            }
+        });
+        modeMenu.add(calculatorItem);
+
+        moneyConverterItem.setIcon(new javax.swing.ImageIcon("D:\\converterImg.png")); // NOI18N
+        moneyConverterItem.setText("Currency Converter");
+        moneyConverterItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moneyConverterItemActionPerformed(evt);
+            }
+        });
+        modeMenu.add(moneyConverterItem);
+        modeMenu.add(jSeparator1);
+
+        exitItem.setIcon(new javax.swing.ImageIcon("D:\\primary-exit.png")); // NOI18N
+        exitItem.setText("Exit");
+        exitItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitItemActionPerformed(evt);
+            }
+        });
+        modeMenu.add(exitItem);
+
+        jMenuBar1.add(modeMenu);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -382,7 +423,7 @@ public class Calculator extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(rootPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
         );
 
         pack();
@@ -624,6 +665,20 @@ public class Calculator extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSqrtActionPerformed
 
+    private void calculatorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculatorItemActionPerformed
+        
+    }//GEN-LAST:event_calculatorItemActionPerformed
+
+    private void exitItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitItemActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitItemActionPerformed
+
+    private void moneyConverterItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moneyConverterItemActionPerformed
+        System.out.println(evt);
+        dispose();
+        CurrencyConverter currency = new CurrencyConverter();
+    }//GEN-LAST:event_moneyConverterItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -681,8 +736,14 @@ public class Calculator extends javax.swing.JFrame {
     private javax.swing.JButton btnPlusMinus;
     private javax.swing.JButton btnSqrt;
     private javax.swing.JButton btnX;
+    private javax.swing.JMenuItem calculatorItem;
+    private javax.swing.JMenuItem exitItem;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblOperations;
     private javax.swing.JLabel lblResult;
+    private javax.swing.JMenu modeMenu;
+    private javax.swing.JMenuItem moneyConverterItem;
     private javax.swing.JPanel rootPanel;
     // End of variables declaration//GEN-END:variables
 }
