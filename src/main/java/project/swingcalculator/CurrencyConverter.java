@@ -4,6 +4,12 @@ package project.swingcalculator;
 
 public class CurrencyConverter extends javax.swing.JFrame {
 
+    private double cop=4087.83;
+    private double eur=0.89;
+    private double usd=1;
+    private double cad=1.32;
+    private double mnx=16.75;
+    
  
     public CurrencyConverter() {
         initComponents();
@@ -11,6 +17,10 @@ public class CurrencyConverter extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
+    public double convert(double value, double m1, double m2){
+        return value*m2/m2;
+    };
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
