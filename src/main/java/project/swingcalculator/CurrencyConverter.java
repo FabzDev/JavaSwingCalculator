@@ -1,24 +1,32 @@
 
 package project.swingcalculator;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 
 public class CurrencyConverter extends javax.swing.JFrame {
 
-    private double cop=4087.83;
-    private double eur=0.89;
-    private double usd=1;
-    private double cad=1.32;
-    private double mnx=16.75;
+    DecimalFormatSymbols simbolos = new DecimalFormatSymbols(Locale.getDefault());
+    DecimalFormat formatoMoneda = new DecimalFormat("#,##0.00", simbolos);
+    private final double cop=4087.83;
+    private final double eur=0.89;
+    private final double usd=1;
+    private final double cad=1.32;
+    private final double mnx=16.75;
     
  
     public CurrencyConverter() {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        simbolos.setCurrencySymbol(""); // Establecer el símbolo de moneda como cadena vacía
     }
 
     public double convert(double value, double m1, double m2){
-        return value*m2/m2;
+        return value*m2/m1;
     };
     
     /**
@@ -49,6 +57,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
         btnDot = new javax.swing.JButton();
         btnC = new javax.swing.JButton();
         btnErase = new javax.swing.JButton();
+        lblCurrency1 = new javax.swing.JLabel();
+        lblCurrency2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         modeMenu = new javax.swing.JMenu();
         calculatorItem = new javax.swing.JMenuItem();
@@ -69,7 +79,6 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         lblValue1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblValue1.setText("$ ");
         lblValue1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         lblValue1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -77,13 +86,13 @@ public class CurrencyConverter extends javax.swing.JFrame {
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(10, 55, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 5, 10);
         rootPanel.add(lblValue1, gridBagConstraints);
 
         cbLista1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -100,16 +109,15 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         lblValue2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblValue2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblValue2.setText("$ 0 ");
         lblValue2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.gridwidth = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 0.1;
         gridBagConstraints.weighty = 0.1;
-        gridBagConstraints.insets = new java.awt.Insets(5, 55, 5, 10);
+        gridBagConstraints.insets = new java.awt.Insets(10, 20, 5, 10);
         rootPanel.add(lblValue2, gridBagConstraints);
 
         cbLista2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -319,6 +327,27 @@ public class CurrencyConverter extends javax.swing.JFrame {
         gridBagConstraints.weighty = 0.1;
         rootPanel.add(btnErase, gridBagConstraints);
 
+        lblCurrency1.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        lblCurrency1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCurrency1.setText("$");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        rootPanel.add(lblCurrency1, gridBagConstraints);
+
+        lblCurrency2.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
+        lblCurrency2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblCurrency2.setText("$");
+        lblCurrency2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 0.1;
+        rootPanel.add(lblCurrency2, gridBagConstraints);
+
         modeMenu.setText("Mode");
 
         calculatorItem.setIcon(new javax.swing.ImageIcon("D:\\calculator icon.png")); // NOI18N
@@ -367,6 +396,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Ventanas
     private void calculatorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculatorItemActionPerformed
         dispose();
         Calculator calculator = new Calculator();
@@ -379,7 +409,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private void exitItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitItemActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitItemActionPerformed
-
+    
+    // Botones
     private void btnCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCActionPerformed
@@ -432,12 +463,18 @@ public class CurrencyConverter extends javax.swing.JFrame {
         lblValue1.setText(lblValue1.getText() + "9");
     }//GEN-LAST:event_btn9ActionPerformed
 
+    //listeners
     private void rootPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rootPanelMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_rootPanelMouseReleased
 
     private void lblValue1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lblValue1PropertyChange
-        System.out.println(evt);    }//GEN-LAST:event_lblValue1PropertyChange
+       
+        if (!lblValue1.getText().equals(""))
+            lblValue2.setText(formatoMoneda.format(convert(Double.parseDouble(lblValue1.getText()), cop, usd)));
+        else
+            lblValue2.setText("0");
+    }//GEN-LAST:event_lblValue1PropertyChange
 
     /**
      * @param args the command line arguments
@@ -497,6 +534,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitItem;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JLabel lblCurrency1;
+    private javax.swing.JLabel lblCurrency2;
     private javax.swing.JLabel lblValue1;
     private javax.swing.JLabel lblValue2;
     private javax.swing.JMenu modeMenu;
