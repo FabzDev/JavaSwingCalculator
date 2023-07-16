@@ -60,12 +60,22 @@ public class CurrencyConverter extends javax.swing.JFrame {
         setTitle("Currency Converter");
         setMinimumSize(new java.awt.Dimension(280, 400));
 
+        rootPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                rootPanelMouseReleased(evt);
+            }
+        });
         rootPanel.setLayout(new java.awt.GridBagLayout());
 
         lblValue1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblValue1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblValue1.setText("$ 0");
+        lblValue1.setText("$ ");
         lblValue1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblValue1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                lblValue1PropertyChange(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -116,6 +126,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn1.setText("1");
+        btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -126,6 +141,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn2.setText("2");
+        btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -136,6 +156,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn3.setText("3");
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 7;
@@ -146,6 +171,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn4.setText("4");
+        btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -156,6 +186,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn5.setText("5");
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -166,6 +201,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn6.setText("6");
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 6;
@@ -176,6 +216,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn7.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn7.setText("7");
+        btn7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn7ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
@@ -186,6 +231,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn8.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn8.setText("8");
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -196,6 +246,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn9.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn9.setText("9");
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 5;
@@ -206,6 +261,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btn0.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btn0.setText("0");
+        btn0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0ActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -216,6 +276,11 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         btnDot.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         btnDot.setText(".");
+        btnDot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDotActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
@@ -322,6 +387,57 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEraseActionPerformed
+
+    private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDotActionPerformed
+
+    private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "0");
+    }//GEN-LAST:event_btn0ActionPerformed
+
+    private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "1");
+    }//GEN-LAST:event_btn1ActionPerformed
+
+    private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "2");
+    }//GEN-LAST:event_btn2ActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "3");
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "4");
+    }//GEN-LAST:event_btn4ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "5");
+    }//GEN-LAST:event_btn5ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "6");
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "7");
+    }//GEN-LAST:event_btn7ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "8");
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        lblValue1.setText(lblValue1.getText() + "9");
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void rootPanelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rootPanelMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rootPanelMouseReleased
+
+    private void lblValue1PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lblValue1PropertyChange
+        System.out.println(evt);    }//GEN-LAST:event_lblValue1PropertyChange
 
     /**
      * @param args the command line arguments
