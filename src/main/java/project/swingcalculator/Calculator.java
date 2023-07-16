@@ -495,7 +495,7 @@ public class Calculator extends javax.swing.JFrame {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
-                v2 = 0;
+                v2 = op.equals("+") || op.equals("-") ? 0 : 1;
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
@@ -557,7 +557,7 @@ public class Calculator extends javax.swing.JFrame {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
-                v2 = 0;
+                v2 = op.equals("+") || op.equals("-") ? 0 : 1;
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
@@ -588,7 +588,7 @@ public class Calculator extends javax.swing.JFrame {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
-                v2 = 0;
+                v2 = op.equals("+") || op.equals("-") ? 0 : 1;
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
@@ -617,7 +617,7 @@ public class Calculator extends javax.swing.JFrame {
             if (!lblResult.getText().equals("")) {
                 v2 = Double.parseDouble(lblResult.getText());
             } else {
-                v2 = 0;
+                v2 = op.equals("+") || op.equals("-") ? 0 : 1;
             }
         } else {
             v2 = op.equals("+") || op.equals("-") ? 0 : 1;
