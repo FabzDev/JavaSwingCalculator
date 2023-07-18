@@ -21,7 +21,8 @@ public class CurrencyConverter extends javax.swing.JFrame {
     private USD usd = new USD();
     private DefaultComboBoxModel exchangeModel1 = new DefaultComboBoxModel();
     private DefaultComboBoxModel exchangeModel2 = new DefaultComboBoxModel();
-    ArrayList<Integer> lastNumber = new ArrayList<Integer>();
+    private ArrayList<Integer> lastNumber = new ArrayList<Integer>();
+    private int dotAmount = 0;
 
     public CurrencyConverter() {
         initComponents();
@@ -60,8 +61,14 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
     public void buttonMethod(int i) {
         if (valueToConvert < 10000000) {
-            valueToConvert = valueToConvert * 10 + i;
-            lastNumber.add(i);
+            if(dotAmount==0){
+                valueToConvert = valueToConvert * 10 + i;
+                lastNumber.add(i);
+            } else {
+                valueToConvert = valueToConvert + (i /Math.pow(10, dotAmount));
+                dotAmount++;
+                System.out.println(valueToConvert);
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "Number too big");
@@ -464,16 +471,19 @@ public class CurrencyConverter extends javax.swing.JFrame {
         valueToConvert = 0;
         lblValue1.setText("");
         lblValue2.setText("");
+        dotAmount = 0;
     }//GEN-LAST:event_btnCActionPerformed
 
     private void btnEraseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraseActionPerformed
         valueToConvert = (valueToConvert - (lastNumber.get(lastNumber.size() - 1))) / 10;
         lastNumber.remove(lastNumber.size() - 1);
         lblValue1.setText(formatoMoneda.format(valueToConvert));
+        dotAmount = 0;
     }//GEN-LAST:event_btnEraseActionPerformed
 
     private void btnDotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDotActionPerformed
-
+        dotAmount++;
+        System.out.println(dotAmount);
     }//GEN-LAST:event_btnDotActionPerformed
 
     // Botones Numeros
