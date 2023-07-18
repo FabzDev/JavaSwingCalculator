@@ -408,6 +408,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
 
         modeMenu.setText("Mode");
 
+        calculatorItem.setIcon(new javax.swing.ImageIcon("D:\\Descargas\\ApacheProjects\\smallimg\\calculator icon.png")); // NOI18N
         calculatorItem.setText("Calculator");
         calculatorItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,6 +417,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
         });
         modeMenu.add(calculatorItem);
 
+        moneyConverterItem.setIcon(new javax.swing.ImageIcon("D:\\Descargas\\ApacheProjects\\smallimg\\converterImg.png")); // NOI18N
         moneyConverterItem.setText("Currency Converter");
         moneyConverterItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -425,6 +427,7 @@ public class CurrencyConverter extends javax.swing.JFrame {
         modeMenu.add(moneyConverterItem);
         modeMenu.add(jSeparator1);
 
+        exitItem.setIcon(new javax.swing.ImageIcon("D:\\Descargas\\ApacheProjects\\smallimg\\primary-exit.png")); // NOI18N
         exitItem.setText("Exit");
         exitItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
