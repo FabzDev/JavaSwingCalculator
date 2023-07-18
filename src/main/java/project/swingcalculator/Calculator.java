@@ -431,7 +431,8 @@ public class Calculator extends javax.swing.JFrame {
 
     private void btn0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn0ActionPerformed
         equalResetCalc();
-        lblResult.setText(lblResult.getText() + "0");
+        if(!(lblResult.getText().equals("0")) && !(lblResult.getText().equals("")))
+            lblResult.setText(lblResult.getText() + "0");
     }//GEN-LAST:event_btn0ActionPerformed
 
     private void btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1ActionPerformed

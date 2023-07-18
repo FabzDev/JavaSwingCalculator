@@ -73,7 +73,6 @@ public class CurrencyConverter extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Number too big");
         }
-
         lblValue1.setText(formatoMoneda.format(valueToConvert));
     }
 
